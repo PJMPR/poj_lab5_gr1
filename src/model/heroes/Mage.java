@@ -1,96 +1,47 @@
 package model.heroes;
 
-public class Mage implements ICanBeAHero {
+public class Mage extends Hero {
 
-	private int availableStatspoints;
-	
-	public void levelUp(){
-		availableStatspoints+=10;
-	}
-	
-	public void raiseStr(){
-		if(availableStatspoints<=0)return;
+
+	@Override
+	protected void modifyStr() {
 		strength++;
-		availableStatspoints--;
+		
 	}
-	
-	public void raiseDef(){
-		if(availableStatspoints<=0)return;
+
+	@Override
+	protected void modifyDef() {
 		defence++;
-		availableStatspoints--;
+		
 	}
-	
-	public void raiseInt() {
-		if(availableStatspoints<=0)return;
+
+	@Override
+	protected void modifyInt() {
 		intelligence = (int)((intelligence+1)/1.2);
 		intelligence++;
 		intelligence*=1.2;
-		availableStatspoints--;
+		
 	}
-	
-	public void raiseDex(){
 
-		if(availableStatspoints<=0)return;
+	@Override
+	protected void modifyDex() {
 		dextrity = (int)((dextrity+1)/1.05);
 		dextrity++;
 		dextrity*=1.05;
-		availableStatspoints--;
+		
 	}
 
-	public void raiseAgi(){
-
-		if(availableStatspoints<=0)return;
+	@Override
+	protected void modifyAgi() {
 		agility = (int)((agility+1)/1.02);
 		agility++;
 		agility*=1.02;
-		availableStatspoints--;
+		
 	}
-	
 
-	public void raiseSpd(){
-
-		if(availableStatspoints<=0)return;
+	@Override
+	protected void modifySpd() {
 		speed++;
-		availableStatspoints--;
 	}
-	
-	private String name;
-	
-	private int strength;
-	private int defence;
-	private int intelligence;
-	private int dextrity;
-	private int agility;
-	private int speed;
-	
-	public int getAvailableStatspoints() {
-		return availableStatspoints;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getStrength() {
-		return strength;
-	}
-	public int getDefence() {
-		return defence;
-	}
-	public int getIntelligence() {
-		return intelligence;
-	}
-	public int getDextrity() {
-		return dextrity;
-	}
-	public int getAgility() {
-		return agility;
-	}
-	public int getSpeed() {
-		return speed;
-	}
-	
-	
 	
 }

@@ -4,9 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		ICanBeAHero mage = new Mage();
-		ICanBeAHero archer = new Archer();
-		ICanBeAHero knight = new Knight();
+		Hero mage = new Mage();
+		Hero archer = new Archer();
+		Hero knight = new Knight();
 		archer.setName("Legolas");
 		knight.setName("Aragorn");
 		mage.setName("Gandalf");
