@@ -1,49 +1,55 @@
 package model.heroes;
 
+import model.heroes.professions.Archer;
+import model.heroes.professions.Knight;
+import model.heroes.professions.Mage;
+import model.heroes.races.Dwarf;
+import model.heroes.races.Elve;
+import model.heroes.races.Human;
+
 public class Main {
 
 	public static void main(String[] args) {
 
-		Hero mage = new Mage();
-		Hero archer = new Archer();
-		Hero knight = new Knight();
-		archer.setName("Legolas");
-		knight.setName("Aragorn");
-		mage.setName("Gandalf");
-		
+		Hero gandalf = new Mage(new Knight(new Human()));
+		gandalf.setName("Gandalf");
+		Hero legolas = new Archer(new Knight(new Elve()));
+		legolas.setName("Legolas");
+		Hero gimli = new Knight(new Dwarf());
+		gimli.setName("Gimli");
 		for(int i=0;i<100;i++){
-			mage.levelUp();
-			mage.raiseAgi();
-			mage.raiseDef();
-			mage.raiseDex();
-			mage.raiseInt();
-			mage.raiseSpd();
-			mage.raiseStr();
+			gandalf.levelUp();
+			gandalf.raiseAgi();
+			gandalf.raiseDef();
+			gandalf.raiseDex();
+			gandalf.raiseInt();
+			gandalf.raiseSpd();
+			gandalf.raiseStr();
 			
 
-			knight.levelUp();
-			knight.raiseAgi();
-			knight.raiseDef();
-			knight.raiseDex();
-			knight.raiseInt();
-			knight.raiseSpd();
-			knight.raiseStr();
+			gimli.levelUp();
+			gimli.raiseAgi();
+			gimli.raiseDef();
+			gimli.raiseDex();
+			gimli.raiseInt();
+			gimli.raiseSpd();
+			gimli.raiseStr();
 			
 
-			archer.levelUp();
-			archer.raiseAgi();
-			archer.raiseDef();
-			archer.raiseDex();
-			archer.raiseInt();
-			archer.raiseSpd();
-			archer.raiseStr();
+			legolas.levelUp();
+			legolas.raiseAgi();
+			legolas.raiseDef();
+			legolas.raiseDex();
+			legolas.raiseInt();
+			legolas.raiseSpd();
+			legolas.raiseStr();
 		}
 		
-		printoutHero(mage);
-		printoutHero(archer);
-		printoutHero(knight);
+		printoutHero(gandalf);
+		printoutHero(legolas);
+		printoutHero(gimli);
 	}
-	static void printoutHero(ICanBeAHero hero){
+	static void printoutHero(Hero hero){
 		System.out.println(hero.getName()+"\t|"
 				+ "str: "+hero.getStrength() +"\t|"
 				+ "def: "+hero.getDefence() +"\t|"
@@ -51,6 +57,12 @@ public class Main {
 				+ "int: "+hero.getIntelligence() +"\t|"
 				+ "agi: "+hero.getAgility() +"\t|"
 				+ "spd: "+hero.getSpeed() +"\t|");
+		System.out.println("Skills: ");
+		for(String skill: hero.getAbilities()){
+			System.out.println("\t"+skill);
+		}
+		System.out.println("----------------------------------------------");
+		
 	}
 
 }

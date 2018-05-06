@@ -1,7 +1,16 @@
-package model.heroes;
+package model.heroes.professions;
+
+import java.util.List;
+
+import model.heroes.Hero;
+import model.heroes.IHaveRace;
 
 public class Archer extends Hero{
 
+	public Archer(IHaveRace race){
+		super(race);
+	}
+	
 	@Override
 	protected void modifyStr() {
 		strength = (int)((strength+1)/1.05);
@@ -45,6 +54,14 @@ public class Archer extends Hero{
 		speed++;
 		speed*=1.05;
 		
+	}
+
+	@Override
+	public List<String> getAbilities() {
+		List<String> result = race.getAbilities();
+		result.add("stealth");
+		result.add("sharp shooting");
+		return result;
 	}
 	
 }

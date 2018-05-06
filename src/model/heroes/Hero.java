@@ -1,7 +1,6 @@
 package model.heroes;
 
-public abstract class Hero implements ICanBeAHero{
-	
+public abstract class Hero implements ICanBeAHero, IHaveRace{
 	
 	protected int availableStatspoints;
 
@@ -13,6 +12,12 @@ public abstract class Hero implements ICanBeAHero{
 	protected int dextrity;
 	protected int agility;
 	protected int speed;
+	
+	protected IHaveRace race;
+	
+	protected Hero(IHaveRace race){
+		this.race = race;
+	}
 	
 	public void levelUp(){
 		availableStatspoints+=10;
